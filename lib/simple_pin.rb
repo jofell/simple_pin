@@ -81,7 +81,7 @@ module SimplePin
     end
 
     def get_pin_object(api_object, token)
-      build_response(make_request(:get, url: "#{api_object}/#{token}", {}))
+      build_response(make_request(:get, url: "#{api_object}/#{token}", options: {}))
     end
 
     private
