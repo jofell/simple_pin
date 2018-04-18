@@ -53,6 +53,28 @@ module SimplePin
       build_response(make_request(:post, url: 'customers', options: options))
     end
 
+    ##
+    # Create a recipient given customer email, name, and bank account #
+    # https://pin.net.au/docs/api/customers
+    # returns: a customer object
+    ##
+    def create_recipient(options = {})
+      build_response(make_request(:post, url: 'recipients', options: options))
+    end
+
+    ##
+    # Create a plan
+    # https://pin.net.au/docs/api/customers
+    # returns: a plan object
+    ##
+    def create_plan(options = {})
+      build_response(make_request(:post, url: 'plans', options: options))
+    end
+
+    def get_pin_object(api_object, token)
+      build_response(make_request(:get, url: "#{api_object}/#{token}", {}))
+    end
+
     private
 
     def build_response(response)
