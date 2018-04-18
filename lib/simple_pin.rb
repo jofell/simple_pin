@@ -63,6 +63,15 @@ module SimplePin
     end
 
     ##
+    # Create a transfer given recipient token
+    # https://pin.net.au/docs/api/customers
+    # returns: a customer object
+    ##
+    def create_transfer(options = {})
+      build_response(make_request(:post, url: 'transfers', options: options))
+    end
+
+    ##
     # Create a plan
     # https://pin.net.au/docs/api/customers
     # returns: a plan object
