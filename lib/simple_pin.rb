@@ -64,7 +64,7 @@ module SimplePin
 
     ##
     # Create a transfer given recipient token
-    # https://pin.net.au/docs/api/customers
+    # https://pin.net.au/docs/api/transfers
     # returns: a customer object
     ##
     def create_transfer(options = {})
@@ -73,12 +73,22 @@ module SimplePin
 
     ##
     # Create a plan
-    # https://pin.net.au/docs/api/customers
+    # https://pin.net.au/docs/api/plans
     # returns: a plan object
     ##
     def create_plan(options = {})
       build_response(make_request(:post, url: 'plans', options: options))
     end
+
+    ##
+    # Create a subscription
+    # https://pin.net.au/docs/api/subscriptions
+    # returns: a subscription object
+    ##
+    def create_subscription(options = {})
+      build_response(make_request(:post, url: 'subscriptions', options: options))
+    end
+
 
     def get_pin_object(api_object, token)
       build_response(make_request(:get, url: "#{api_object}/#{token}", options: {}))
